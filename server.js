@@ -26,27 +26,32 @@ app.use(methodOverride());
 app.listen(8080);
 
 // model
-var todo = mongoose.model('todo', {
+var Todo = mongoose.model('todo', {
   text: String,
 });
 
 // routes
 app.get('/api/todos', function(req, res) {
-  todo.find(function(err, todos) {
+
+  Todo.find(function(err, todos) {
+
     if (err)
       res.send(err);
+
     res.json(todos);
   });
 });
 
 app.post('/api/todos', function(req, res) {
-  todo.create({
+
+  Todo.create({
     text: req.body.text,
     done: false,
   }, function(err, todo) {
     if (err)
       res.send(err);
-    todo.find(function(err, todos) {
+
+    Todo.find(function(err, todos) {
       if (err)
         res.send(err);
       res.json(todos);
@@ -55,12 +60,13 @@ app.post('/api/todos', function(req, res) {
 });
 
 app.delete('/api/todos/:todo_id', function(req, res) {
-  todo.remove({
+  Todo.remove({
     _id: req.params.todo_id,
   }, function(err, todo) {
     if (err)
       res.send(err);
-    todo.find(function(err, todos) {
+
+    Todo.find(function(err, todos) {
       if (err)
         res.send(err);
       res.json(todos);
