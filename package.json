@@ -7,5 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Welliton Nunes Portilho Paiva",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "eslint": "^4.19.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wellitonpaiva/to-do-application.git"
+  }
 }
