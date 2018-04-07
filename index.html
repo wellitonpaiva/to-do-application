@@ -1,15 +1,50 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
 <html ng-app="App">
   <head>
-    <meta charset="utf-8">
+    
     <title>To Do Application</title>
+
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"/>  
+  
+
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>-->
+    <script type="text/javascript" src="./node_modules/angular/lib/angular.min.js"></script>
+    <script type="text/javascript" src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="app.js"></script>
+
+  
   </head>
 
   <body ng-controller="mainController">
+      <div class="container">
+        <div>
+          <h1>Todo app <span> {{ todos.lenth }}</span></h1>
+        </div>
 
+        <div id="todo-list" class="row">
+          <div class="col-sm-4 col-sm-offset-4">
+            <div class="checkbox" ng-repeat="todo in todos">
+              <label>
+                <input type="checkbox" ng-click="deleteTodo(todo._id)">{{ todo.text }}
+              </label>
+            </div>
 
+          </div>
+        </div>
+      </div>
+
+      <div id="todo-form" class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg text-center" placeholder="Insert new todo" ng-model="formData.text">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+          </form>
+        </div>
+      </div>
   </body>
-
-  <script type="type/javascript" src="./node_modules/angular/angular.js"></script>
-
-  <script type="text/javascript" src="./app.js"></script>
 </html>

@@ -10,13 +10,16 @@
   "author": "Welliton Nunes Portilho Paiva",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.6.9",
+    "angular": "1.2.16",
     "body-parser": "^1.18.2",
+    "bootstrap": "^4.0.0",
     "eslint": "^4.19.1",
     "express": "^4.16.3",
+    "jquery": "^3.3.1",
     "method-override": "^2.3.10",
     "mongoose": "^5.0.13",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "popper.js": "^1.14.3"
   },
   "repository": {
     "type": "git",

@@ -16,7 +16,7 @@ mongoose.connect('mongodb://user:tdy8Bch0llJrm9ao' +
   'cluster0-shard-00-02-nbz6s.mongodb.net:27017/test?' +
   'ssl=true&replicaSet=Cluster0-shard-0&authSource=admin');
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname));
 app.use(morgan('dev'));
 app.unsubscribe(bodyParser.urlencoded({extended: 'true'}));
 app.use(bodyParser.json());
@@ -47,7 +47,7 @@ app.post('/api/todos', function(req, res) {
     if (err)
       res.send(err);
     todo.find(function(err, todos) {
-      if(err)
+      if (err)
         res.send(err);
       res.json(todos);
     });
@@ -60,10 +60,14 @@ app.delete('/api/todos/:todo_id', function(req, res) {
   }, function(err, todo) {
     if (err)
       res.send(err);
-      todo.find(function(err, todos) {
-        if(err)
-          res.send(err);
-        res.json(todos);
+    todo.find(function(err, todos) {
+      if (err)
+        res.send(err);
+      res.json(todos);
     });
   });
+});
+
+app.get('*', function(req, res) {
+  res.sendfile('./index.html');
 });
