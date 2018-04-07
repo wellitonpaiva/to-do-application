@@ -4,7 +4,8 @@
   "description": "To do application for Cielo interview",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "eslint --ignore-path .gitignore ."
   },
   "author": "Welliton Nunes Portilho Paiva",
   "license": "ISC",
@@ -15,5 +16,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/wellitonpaiva/to-do-application.git"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-strongloop": "^2.1.0"
   }
 }

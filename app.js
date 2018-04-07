@@ -1,7 +1,7 @@
-angular.module("App", ['main']);
+angular.module('App', ['main']);
 
-angular.module("main", []);
+angular.module('main', []);
 
-angular.module("main").controller("mainController", function($scope) {
+angular.module('main').controller('mainController', function($scope) {
 
 });
