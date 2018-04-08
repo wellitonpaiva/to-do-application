@@ -2,51 +2,70 @@
 
 <!-- ASSIGN OUR ANGULAR MODULE -->
 <html ng-app="App">
-  <head>
-    
-    <title>To Do Application</title>
 
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"/>  
-  
+<head>
 
-    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>-->
-    <script type="text/javascript" src="./node_modules/angular/lib/angular.min.js"></script>
-    <script type="text/javascript" src="./node_modules/jquery/dist/jquery.js"></script>
-    <script src="app.js"></script>
+  <title>To Do Application</title>
 
-  
-  </head>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="main.css" />
 
-  <body ng-controller="mainController">
-      <div class="container">
-        <div>
-          <h1>Todo app <span> {{ todos.lenth }}</span></h1>
+
+
+
+
+
+</head>
+
+<body ng-controller="mainController">
+  <div class="container-fluid">
+    <div class="tab row">
+      <button class="tablinks default" id="add" onclick="changeTab(event, 'add')">
+        <span class="fa fa-plus"></span>
+      </button>
+      <button class="tablinks" id="search" onclick="changeTab(event, 'search')">
+        <span class="fa fa-search"></span>
+      </button>
+    </div>
+
+    <div id="add-form" class="belowTab tab row">
+      <form class="form-inline">
+        <input type="text" class="form-control col-sm-12" placeholder="Add a task ..." ng-model="formData.text">
+
+        <button type="submit" class="fa fa-plus overInput" ng-click="createTodo()">
+        </button>
+      </form>
+    </div>
+
+    <div id="search-form" class="belowTab tab row">
+      <form class="form-inline">
+        <input type="text" class="form-control col-sm-12" placeholder="Search a task ..." ng-model="formData.text">
+
+        <button type="submit" class="fa fa-plus overInput" ng-click="searchTodo()">
+        </button>
+      </form>
+    </div>
+
+    <div id="todo-list" class="row">
+      <div class="col-sm-12 ">
+        <div class="checkbox" ng-repeat="todo in todos">
+          <label ng-class="{complete: todo.isComplete}">
+            <input type="checkbox" ng-disabled="todo.isComplete" ng-click="completeTodo(todo._id)">{{ todo.text }}
+          </label>
+          <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
 
-        <div id="todo-list" class="row">
-          <div class="col-sm-4 col-sm-offset-4">
-            <div class="checkbox" ng-repeat="todo in todos">
-              <label>
-                <input type="checkbox" ng-click="deleteTodo(todo._id)">{{ todo.text }}
-              </label>
-            </div>
-
-          </div>
-        </div>
       </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="./node_modules/angular/lib/angular.min.js"></script>
+<script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./node_modules/jquery/dist/jquery.js"></script>
+<script src="app.js"></script>
+<script src="actions.js"></script>
 
-      <div id="todo-form" class="row">
-        <div class="col-sm-8 col-sm-offset-2 text-center">
-          <form>
-            <div class="form-group">
-              <input type="text" class="form-control input-lg text-center" 
-                placeholder="Insert new todo" ng-model="formData.text">
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-lg" 
-              ng-click="createTodo()">Add</button>
-          </form>
-        </div>
-      </div>
-  </body>
 </html>

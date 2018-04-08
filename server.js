@@ -28,6 +28,7 @@ app.listen(8080);
 // model
 var Todo = mongoose.model('todo', {
   text: String,
+  isComplete: Boolean,
 });
 
 // routes
@@ -46,6 +47,7 @@ app.post('/api/todos', function(req, res) {
 
   Todo.create({
     text: req.body.text,
+    isComplete: false,
     done: false,
   }, function(err, todo) {
     if (err)
@@ -57,6 +59,22 @@ app.post('/api/todos', function(req, res) {
       res.json(todos);
     });
   });
+});
+
+app.post('/api/todos/:todo_id', function(req, res) {
+  var query = {_id: req.params.todo_id};
+  var update = {isComplete: true};
+  Todo.update(query, update,
+    function(err, todo) {
+      if (err)
+        res.send(err);
+
+      Todo.find(function(err, todos) {
+        if (err)
+          res.send(err);
+        res.json(todos);
+      });
+    });
 });
 
 app.delete('/api/todos/:todo_id', function(req, res) {
