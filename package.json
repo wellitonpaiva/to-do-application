@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "pretest": "eslint --ignore-path .gitignore .",
-    "postinstall": "ng build --aot -prod",
     "start": "node server.js"
   },
   "author": "Welliton Nunes Portilho Paiva",
@@ -33,6 +32,6 @@
     "eslint-config-strongloop": "^2.1.0"
   },
   "engines": {
-    "node": "4.1.1"
+    "node": "6.11.3"
   }
 }
