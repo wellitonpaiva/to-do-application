@@ -2,7 +2,7 @@
   "name": "to-do-application",
   "version": "1.0.0",
   "description": "To do application for Cielo interview",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "pretest": "eslint --ignore-path .gitignore ."

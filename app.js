@@ -4,60 +4,29 @@ var todoApp = angular.module('App', []);
 
 function mainController($scope, $http) {
 
-  $scope.todoList = [
-    {
-      text: 'task test',
-      isComplete: false,
-    },
-    {
-      text: 'task complete',
-      isComplete: true,
-    },
-  ];
+  $scope.todoList = [];
+  $scope.doneList = [];
   $scope.formData = {};
-
-  $http.get('/api/todos')
-    .success(function(data) {
-      $scope.todos = data;
-      console.log(data);
-    }).error(function(data) {
-      console.log('Error: ' + data);
-    });
+  $scope.searchString = '';
 
   $scope.addTodo = function() {
     var todo = {
       text: $scope.formData.text,
     };
-    console.log(todo);
-
-  };
-  $scope.createTodo = function() {
-    $http.post('/api/todos', $scope.formData)
-      .success(function(data) {
-        $scope.formData = {};
-        $scope.todos = data;
-        console.log(data);
-      }).error(function(data) {
-        console.log('Error: ' + data);
-      });
+    $scope.todoList.push(todo);
+    $scope.formData = {};
   };
 
-  $scope.deleteTodo = function(id) {
-    $http.delete('/api/todos/' + id)
-      .success(function(data) {
-        $scope.todos = data;
-        console.log(data);
-      }).error(function(data) {
-        console.log('Error: ' + data);
-      });
+  $scope.removeTodo = function(todo) {
+    $scope.todoList.splice($scope.todoList.indexOf(todo), 1);
   };
 
-  $scope.completeTodo = function(id) {
-    $http.post('/api/todos/' + id)
-      .success(function(data) {
-        $scope.todos = data;
-      }).error(function(data) {
-        console.log('Error: ' + data);
-      });
+  $scope.removeCompletedTodo = function(todo) {
+    $scope.doneList.splice($scope.doneList.indexOf(todo), 1);
+  };
+
+  $scope.completeTodo = function(todo) {
+    $scope.todoList.splice($scope.todoList.indexOf(todo), 1);
+    $scope.doneList.push(todo);
   };
 }

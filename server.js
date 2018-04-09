@@ -10,12 +10,12 @@ var methodOverride = require('method-override');
 /* mongoose.connect('mongodb+srv://user:' +
   'tdy8Bch0llJrm9ao@cluster0-nbz6s.mongodb.net/test'); */
 
-mongoose.connect('mongodb://user:tdy8Bch0llJrm9ao' +
+/* mongoose.connect('mongodb://user:tdy8Bch0llJrm9ao' +
   '@cluster0-shard-00-00-nbz6s.mongodb.net:27017,' +
   'cluster0-shard-00-01-nbz6s.mongodb.net:27017,' +
   'cluster0-shard-00-02-nbz6s.mongodb.net:27017/test?' +
   'ssl=true&replicaSet=Cluster0-shard-0&authSource=admin');
-
+*/
 app.use(express.static(__dirname));
 app.use(morgan('dev'));
 app.unsubscribe(bodyParser.urlencoded({extended: 'true'}));
@@ -42,6 +42,7 @@ app.get('/api/todos', function(req, res) {
     res.json(todos);
   });
 });
+
 
 app.post('/api/todos', function(req, res) {
 
