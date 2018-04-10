@@ -79,10 +79,7 @@ footer {
 .nameAndPicture{
   color: lightgrey;
 }
+
 img {
-  border-radius: 50%;
-  width: 60%;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #f3f3f3;
+  max-height: 50px;
 }
