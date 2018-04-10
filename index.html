@@ -19,17 +19,17 @@
 <body ng-controller="mainController">
   <div class="container-fluid">
     <div class="tab row">
-      <div class="col-3 col-sm-5 col-lg-5">
-        <button class="col-1 col-sm-2 col-lg-1 tablinks default" id="add" onclick="changeTab(event, 'add')">
+      <div class="col-6 col-sm-5 col-lg-5">
+        <button class="tablinks default" id="add" onclick="changeTab(event, 'add')">
           <span class="fa fa-plus center"></span>
         </button>
-        <button class="col-1 col-sm-2 col-lg-1 tablinks" id="search" onclick="changeTab(event, 'search')">
+        <button class="tablinks" id="search" onclick="changeTab(event, 'search')">
           <span class="fa fa-search"></span>
         </button>
       </div>
       <div class="col-1 col-sm-2 col-lg-4"></div>
-      <div class="col-6 col-sm-4 col-lg-2 nameAndPicture">
-        <a>Welliton Portilho Paiva</a>
+      <div class="col-3 col-sm-4 col-lg-2 nameAndPicture">
+        <a>Welliton Paiva</a>
         <br>
         <a>Logged in {{date}}</a>
       </div>
@@ -43,9 +43,8 @@
         <div class="input-group col-12 col-sm-12 col-lg-12">
           <input type="text" class="form-control " placeholder="Add a task ..." ng-model="formData.text">
 
-          <button type="submit" class="fa fa-plus bg-white input-group-addon" ng-click="addTodo()">
+          <button type="submit" class="fa fa-plus input-group-addon" ng-click="addTodo()">
         </div>
-        </button>
       </form>
     </div>
 
@@ -53,7 +52,6 @@
       <form class="form-inline">
           <div class="input-group col-12 col-sm-12 col-lg-12">
         <input type="text" class="form-control" placeholder="Search a task ..." ng-model="searchString">
-        </button>
       </form>
     </div>
 
