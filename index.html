@@ -5,8 +5,8 @@
 
 <head>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
 
   <title>To Do Application</title>
 
@@ -19,43 +19,46 @@
 <body ng-controller="mainController">
   <div class="container-fluid">
     <div class="tab row">
-      <div class="col-sm-12 col-lg-5">
-        <button class="col-sm-1 tablinks default" id="add" onclick="changeTab(event, 'add')">
-          <span class="fa fa-plus"></span>
+      <div class="col-3 col-sm-5 col-lg-5">
+        <button class="col-1 col-sm-2 col-lg-1 tablinks default" id="add" onclick="changeTab(event, 'add')">
+          <span class="fa fa-plus center"></span>
         </button>
-        <button class="col-sm-1 tablinks" id="search" onclick="changeTab(event, 'search')">
+        <button class="col-1 col-sm-2 col-lg-1 tablinks" id="search" onclick="changeTab(event, 'search')">
           <span class="fa fa-search"></span>
         </button>
       </div>
-      <div class="col-lg-4"></div>
-      <div class="col-sm-1 col-lg-2 nameAndPicture">
+      <div class="col-1 col-sm-2 col-lg-4"></div>
+      <div class="col-6 col-sm-4 col-lg-2 nameAndPicture">
         <a>Welliton Portilho Paiva</a>
         <br>
         <a>Logged in {{date}}</a>
       </div>
-      <div class="col-sm-1">
+      <div class="col-1 col-sm-1 col-lg-1">
         <img class="img-responsive rounded-circle" src="https://media.licdn.com/dms/image/C4D03AQHCuXrVMY46Ng/profile-displayphoto-shrink_200_200/0?e=1528423200&v=beta&t=JHkW2ITon9tFn8HF_9x6DMJ76hhgQBtMSiJpu-PIMrA">
       </div>
     </div>
 
     <div id="add-form" class="belowTab tab row">
       <form class="form-inline">
-        <input type="text" class="form-control col-sm-12 col-lg-12" placeholder="Add a task ..." ng-model="formData.text">
+        <div class="input-group col-12 col-sm-12 col-lg-12">
+          <input type="text" class="form-control " placeholder="Add a task ..." ng-model="formData.text">
 
-        <button type="submit" class="fa fa-plus overInput" ng-click="addTodo()">
+          <button type="submit" class="fa fa-plus bg-white input-group-addon" ng-click="addTodo()">
+        </div>
         </button>
       </form>
     </div>
 
     <div id="search-form" class="belowTab tab row">
       <form class="form-inline">
-        <input type="text" class="form-control col-sm-12 col-lg-12" placeholder="Search a task ..." ng-model="searchString">
+          <div class="input-group col-12 col-sm-12 col-lg-12">
+        <input type="text" class="form-control" placeholder="Search a task ..." ng-model="searchString">
         </button>
       </form>
     </div>
 
     <div id="todo-list" class="row">
-      <div class="col-sm-12 col-lg-12">
+      <div class="col-12 col-sm-12 col-lg-12">
         <div class="checkbox" ng-repeat="todo in todoList | filter : searchString">
           <label>
             <input type="checkbox" ng-disabled="todo.isComplete" ng-click="completeTodo(todo)">{{ todo.text }}
