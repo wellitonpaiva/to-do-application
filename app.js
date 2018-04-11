@@ -10,11 +10,15 @@ function mainController($scope, $http) {
   $scope.searchString = '';
 
   $scope.addTodo = function() {
+    if (undefined === $scope.formData.text){
+      return;
+    }
     var todo = {
       text: $scope.formData.text,
     };
     $scope.todoList.push(todo);
     $scope.formData = {};
+    console.log(todo);
   };
 
   $scope.removeTodo = function(todo) {

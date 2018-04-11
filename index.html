@@ -50,8 +50,9 @@
 
     <div id="search-form" class="belowTab tab row">
       <form class="form-inline">
-          <div class="input-group col-12 col-sm-12 col-lg-12">
-        <input type="text" class="form-control" placeholder="Search a task ..." ng-model="searchString">
+        <div class="input-group col-12 col-sm-12 col-lg-12">
+          <input type="text" class="form-control" placeholder="Search a task ..." ng-model="searchString">
+        </div>
       </form>
     </div>
 
@@ -70,7 +71,7 @@
 
     <div id="done-list" class="row">
       <div class="col-12 col-lg-12">
-        <div class="checkbox" ng-repeat="todo in doneList">
+        <div class="checkbox" ng-repeat="todo in doneList | filter : searchString">
           <label class="complete">
             <input type="checkbox" ng-disabled="todo.isComplete" ng-click="completeTodo(todo)">{{ todo.text }}
           </label>
