@@ -9,7 +9,6 @@
     "jasmine": true
   },
   "globals": {
-    "angular": true,
-    "mainController": true
+    "angular": true
   }
 }

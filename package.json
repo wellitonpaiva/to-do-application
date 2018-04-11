@@ -13,7 +13,7 @@
   "author": "Welliton Nunes Portilho Paiva",
   "license": "ISC",
   "dependencies": {
-    "angular": "latest",
+    "angular": "1.2.16",
     "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0",
     "eslint": "^4.19.1",

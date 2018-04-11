@@ -1,8 +1,10 @@
 'use strict';
 
+var angular;
+
 var todoApp = angular.module('App', []); // eslint-disable-line no-unused-vars
 
-mainController = function($scope, $http) { // eslint-disable-line no-unused-vars
+function mainController($scope, $http) { // eslint-disable-line no-unused-vars
 
   $scope.todoList = [];
   $scope.doneList = [];
@@ -33,4 +35,4 @@ mainController = function($scope, $http) { // eslint-disable-line no-unused-vars
     $scope.todoList.splice($scope.todoList.indexOf(todo), 1);
     $scope.doneList.push(todo);
   };
-};
+}
