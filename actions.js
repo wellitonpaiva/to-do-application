@@ -1,6 +1,6 @@
 'use strict';
 
-function changeTab(evt, tab) {
+function changeTab(evt, tab) { // eslint-disable-line no-unused-vars
   var i, tabcontent, tablinks, tabForms;
   tabcontent = document.getElementsByClassName('tabcontent');
   for (i = 0; i < tabcontent.length; i++) {

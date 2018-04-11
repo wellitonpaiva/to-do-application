@@ -1,0 +1,14 @@
+{"extends": "strongloop",
+  "parserOptions": {
+    "impliedStrict": true,
+    "ecmaVersion": 6
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jasmine": true
+  },
+  "globals": {
+    "angular": true
+  }
+}
